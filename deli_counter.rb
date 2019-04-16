@@ -1,32 +1,31 @@
 
-katz_deli[]
+
+def take_a_number(katz_deli, name)
+katz_deli << name
+puts "Welcome, #{name}. You are number #{katz_deli.length} in line."
+end
+
+
+def now_serving (katz_deli)
+
+if katz_deli.empty? == true
+  puts "There is nobody waiting to be served!"
+elsif katz_deli.empty? == false
+  puts "Currently serving #{katz_deli.shift}."
+  end
+end
+
 
 def line (katz_deli)
-  katz_deli.each_with_index | current_person, index |
-  katz_deli.push("#{index}, #{current_person}")
-if
 
-
-
-
-  else
-     "The line is currently empty."
-
-end
-
-
-def take_a_number(katz_deli, index)
-
-katz_deli.each do | current_person, index |
-
-puts "Welcome, #{katz_deli}. You are number #{index+1} in line"
-end
-
-def now_serving
-  #puts next in line and removes from front of line
-
-
+if katz_deli.length == 0
+  puts "The line is currently empty."
 else
-  puts "there is nobody wating to be served!"
+  message = "The line is currently:"
 
+  katz_deli.each_with_index do | value, index |
+   message += " #{index.to_i+1}. #{value}"
+    end
+    puts "#{message}"
+  end
 end
