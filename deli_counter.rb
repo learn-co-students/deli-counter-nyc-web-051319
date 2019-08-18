@@ -1,31 +1,23 @@
-def line(current_line)
-  line = "The line is currently:"
-  if current_line.length == 0
-    line = "The line is currently empty."
+def line(line)
+  line_list = "The line is currently:"
+  if line.length > 0
+    line.each_with_index {|person, index| line_list += " #{index+1}. #{person}"}
   else
-    current_line.each_with_index do |name, index|
-      line = line + " #{index + 1}. #{name}"
-    end
+    line_list = "The line is currently empty."
   end
-  puts line
+  puts line_list
 end
 
-def take_a_number(current_line, name)
-  if current_line.length == 0
-    current_line << name
-    greeting = "Welcome, #{name}. You are number 1 in line."
-  else
-    current_line << name
-    greeting = "Welcome, #{name}. You are number #{current_line.length} in line."
-  end
-  puts greeting
+def take_a_number(line, name)
+  line << name
+  puts "Welcome, #{name}. You are number #{line.length} in line."
 end
 
-def now_serving(current_line)
-  if current_line.length == 0
+def now_serving(line)
+  if line.length > 0
+    puts "Currently serving #{line[0]}."
+    line.shift
+  else
     puts "There is nobody waiting to be served!"
-  else
-    puts "Currently serving #{current_line.first}."
-    current_line.shift
   end
 end
